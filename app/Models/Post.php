@@ -14,4 +14,10 @@ class Post extends Model
     protected $fillable = ['title', 'description', 'image', 'user_id'];
 
     // protected $guarded = ['id'];
+
+    // Fungsi untuk memanggil gambar
+    public function getImage()
+    {
+        return asset($this->image);
+    }
 }
