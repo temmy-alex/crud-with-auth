@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,13 @@ Route::get('/', function() {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/testing/show', [TestingController::class, 'index']);
+Route::get('/page/show', [PageController::class, 'create'])->name('page.show');
+Route::get('/page/show/name', [PageController::class, 'showName'])->name('page.showname');
+Route::post('/page/view/name', [PageController::class, 'viewName'])->name('page.viewname');
+Route::get('/page/tambah/data', [PageController::class, 'tambah'])->name('tambah.data');
+Route::post('/page/simpan/data', [PageController::class, 'simpan'])->name('simpan.data');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');

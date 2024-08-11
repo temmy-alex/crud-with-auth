@@ -14,16 +14,27 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::create([
-            'title' => 'Artikel 8',
-            'description' => 'Artikel 8',
+            'title' => 'Artikel 1',
+            'description' => 'Artikel 1',
             'image' => '/img/no-image.png',
+            'category_id' => 1,
             'user_id' => 1
         ]);
 
         Post::create([
-            'title' => 'Artikel 9',
-            'description' => 'Artikel 9',
+            'title' => 'Artikel 2',
+            'description' => 'Artikel 2',
             'image' => '/img/no-image.png',
+            'category_id' => 2,
+            'user_id' => 1
+        ]);
+
+
+        Post::create([
+            'title' => 'Artikel 3',
+            'description' => 'Artikel 2',
+            'image' => '/img/no-image.png',
+            'category_id' => 3,
             'user_id' => 1
         ]);
     }

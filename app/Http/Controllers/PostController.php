@@ -20,9 +20,18 @@ class PostController extends Controller
         //         ->orderBy('created_at', 'desc')
         //         ->get();
 
-        $posts = Post::select('id', 'title', 'description', 'image', 'created_at', 'user_id')
+        $posts = Post::select('id', 'title', 'description', 'image', 'created_at', 'user_id', 'category_id')
+                ->with('category')
                 ->orderBy('created_at', 'desc')
                 ->paginate(5);
+
+        // Die and Dump
+        // Die -> menghentikan proses synchronous coding
+        // Dump -> menampilkan data beserta struktur data nya (bisa array atau object)
+        // Gabungan dari kedua perintah dibawah
+        // die();
+        // var_dump($posts);
+        // dd($posts);
 
         return view('posts.index', ['posts' => $posts]);
     }
